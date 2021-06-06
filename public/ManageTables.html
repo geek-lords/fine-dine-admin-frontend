@@ -55,11 +55,11 @@
                         <div class="hidden sm:block">
                             <div class="flex space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <a href="#" class="text-gray-700 py-3 text-sm font-medium border-b-2 border-blue-500" aria-current="page">Manage Menu</a>
+                                <a href="#" class="text-gray-700 py-3 text-sm font-medium" aria-current="page">Manage Menu</a>
 
                                 <a href="#" class="text-gray-700  px-3 py-3 text-sm font-medium">Manage Orders</a>
 
-                                <a href="#" class="text-gray-700  px-3 py-3 text-sm font-medium">Manage Tables</a>
+                                <a href="#" class="text-gray-700  px-3 py-3 text-sm font-medium border-b-2 border-blue-500">Manage Tables</a>
 
                                 <a href="#" class="text-gray-700  px-3 py-3 text-sm font-medium">History</a>
                             </div>
@@ -111,47 +111,37 @@
     </div>
 
     <div class="grid grid-cols-12 h-auto">
-        <!--Left Section-->
-        <div class="col-span-6 ml-32">
-            <div class="block mt-5">
-                <p class="text-xl">Add New Restaurant</p>
+        <div class="col-span-1"></div>
+        <div class="col-span-10">
+            <section class="text-gray-600 body-font">
+                <button class="float-right mt-10 border-2 border-gray-700 px-2 py-1 rounded-md">Add</button>
+                <div class="container px-5 py-20 mx-auto">
+                    <div class="flex flex-wrap -m-4">
+                        <!--Indi Cards-->
+                        <div class="p-4 lg:w-1/3">
+                            <div class="h-5/6 shadow-md bg-opacity-75 px-8 pt-16 pb-24 rounded-xl overflow-hidden text-center relative border-2 border-gray-200">
+                                <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Table Name</h1>
+                                <button class="border-2 bg-blue-500 text-white px-3 py-2 my-8 rounded-lg outline-none">Remove</button><br>
+                                <a class="text-indigo-500 inline-flex items-center mb-10">Download QR
+                                    <img src="Download.svg">
+                                </a>
+                            </div>
+                        </div>
+                        <!--End-->
+                        <!--Add New Cards (Add this section apperar on Add button Click)-->
+                        <div class="p-4 lg:w-1/3">
+                            <div class="h-5/6 shadow-md bg-opacity-75 px-8 pt-16 pb-24 rounded-xl overflow-hidden text-center relative border-2 border-gray-200">
+                                <input required class="border-2 border-gray-300 outline-none rounded-lg w-44 h-12 p-3 text-lg focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="res-name" name="res-name" placeholder="Table Name"><br>
+                                <button class="border-2 bg-blue-500 text-white px-3 py-2 my-16 rounded-lg outline-none ">Submit</button><br>
+                            </div>
+                        </div>
+                        <!--End-->
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-span-1 "></div>
 
-                <form method="post" class="mt-10" style="font-family: Poppins Medium;">
-                    <div class="my-2">
-                        <label class="text-xl text-gray-500" for="res-name">Name</label><br>
-                        <input required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-12 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="res-name" name="res-name" placeholder="Central Perk"><br>
-                    </div>
-                    <div class="my-2">
-                        <label class="text-xl text-gray-500" for="GST">GST</label><br>
-                        <input required class="border-2 border-gray-300 outline-none rounded-lg w-32 h-12 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="number" id="gst" name="gst" placeholder="18.00"><span class="text-xl text-gray-600 ml-3">%</span><br>
-                    </div>
-                    <div class="my-2">
-                        <label class="text-xl text-gray-500" for="addr">Address</label><br>
-                        <textarea required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-24 text-lg mt-2 p-3 focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="addr" name="addr" placeholder="Behind Some Building,near famous landmark"></textarea><br>
-                    </div>
-                    <div class="my-2">
-                        <label class="text-xl text-gray-500" for="pin">Pincode</label><br>
-                        <input required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-12 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="Pincode" name="Pincode" placeholder="414205"><br>
-                    </div>
-                    <div class="my-2">
-                        <label class="text-xl text-gray-500" for="description">Description</label><br>
-                        <textarea required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-24 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="description" name="description" placeholder="Description"></textarea><br>
-                    </div>
-                    <div class="mb-10">
-                        <input class="mt-2 p-4 w-72 rounded-lg bg-blue-500 text-gray-50 text-xl hover:bg-blue-600" type="submit" value="Submit">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!--Right Section-->
-        <!--Content-->
-        <div class="hidden lg:col-span-6 lg:grid grid-cols-6 lg:bg-gray-100">
-            <!--Theme Picture-->
-            <div class="lg:col-span-1"></div>
-            <div class="lg:col-span-4">
-                <img src="restro.svg" />
-            </div>
-        </div>
     </div>
     </div>
 
