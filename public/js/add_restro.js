@@ -22,33 +22,29 @@ function setCookie(name,value,days) {
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 
-function get_admin_restaurants(jwt_token){
+function create_new_restaurant(name, description, photo_url, address, pincode, gst){
+    obj = {
+        name:name,
+        description:description,
+        photo_url:photo_url,
+        tax_percent:gst,
+        address:address,
+        pincode:pincode
+    }
     $.ajax({
-        type: "GET",
-        url: BASE_URL+"/get_restaurant",
+        type: "POST",
+        url: BASE_URL+"/add_restaurant",
+        data: JSON.stringify(obj),
         dataType: "json",
         contentType: "application/json",
         headers: {"X-Auth-Token": jwt_token},
         success: function (response) {
-            console.log(response.restaurant_details)
-            array = response.restaurant_details
-            
-            array.forEach(json => {
-                address = json.address
-                id = json.id
-                rest_name = json.name
-                photo_url = json.photo_url
-        
-                $('#add_rest').append(`
-                <div id="${id}" class="restaurant w-auto h-auto border-2 border-gray-300 my-3 mx-6 rounded-xl flex">
-                    <div class="w-20 h-20 rounded-md m-3 bg-black flex-none"> <img class="w-20 h-20 object-fill rounded-md" src="${photo_url}"> </div>
-                    <div class="m-2 w-auto h-auto">
-                        <span class="text-2xl text-gray-700" style="font-family: Poppins Medium;">${rest_name}</span>
-                        <p class="text-gray-400 text-sm">${address}</p>
-                    </div>
-                </div>
-                `)
-            })
+            if(response.hasOwnProperty("error")){
+                alert(response.error)
+            }else{
+                setCookie("rest_id", response.restaurant_id, 30)  
+                check_if_jwt_exists_and_go_to_admin_panel();       
+            }
         },
         statusCode: {
            401: function(xhr) {
@@ -57,10 +53,35 @@ function get_admin_restaurants(jwt_token){
            }
        },
        failure: function(reponse){
-           console.log(reponse)
+           alert(reponse)
        }
     });
 }
+
+
+function check_if_jwt_exists_and_go_to_admin_panel(){
+    jwt_token = getCookie("jwt_token")
+    rest_id = getCookie("rest_id")
+
+    if(jwt_token!=null && rest_id!=null){
+        window.location = "RestroHome.html";
+    }else if(jwt_token==null)
+        window.location = "signIn.html";
+}
+
+function addRestro(e){
+    e.preventDefault();
+    
+    res_name = $('#res-name').val()
+    gst = $('#gst').val()
+    addr = $('#addr').val()
+    Pincode = $('#Pincode').val()
+    description = $('#description').val()
+    photo_url = "https://www.travelandleisureindia.in/wp-content/uploads/2019/12/Express-inn-feature-2.jpg"
+
+    create_new_restaurant(res_name, description, photo_url ,addr, Pincode, gst)
+}
+
 
 function check_if_jwt_exists_and_go_to_admin_panel(){
     jwt_token = getCookie("jwt_token")
@@ -72,21 +93,7 @@ function check_if_jwt_exists_and_go_to_admin_panel(){
         window.location = "RestroHome.html";
 }
 
-// On restaurant selection
-$('body').on('click', '.restaurant' , function(){
-    id = this.id
-    if(id==null || id==""){
-        alert("rest_id null")
-        return
-    }
-    setCookie("rest_id", id, 30)
-    check_if_jwt_exists_and_go_to_admin_panel();
-});
-
-
 $(document).ready(function() {
     check_if_jwt_exists_and_go_to_admin_panel()
     jwt_token = getCookie("jwt_token")
-    console.log("No rest id. jwt_token:\n"+jwt_token)
-    get_admin_restaurants(jwt_token)
 });

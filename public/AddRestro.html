@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="icon" href="favicon.png" type="image/png" sizes="16x16">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
 <body style="font-family: Poppins Medium;" class="bg-gray-50">
@@ -116,29 +117,29 @@
             <div class="block mt-5">
                 <p class="text-xl">Add New Restaurant</p>
 
-                <form method="post" class="lg:mt-10" style="font-family: Poppins Medium;">
+                <form onsubmit="addRestro(event)" class="lg:mt-10" style="font-family: Poppins Medium;">
                     <div class="my-2">
                         <label class="lg:text-xl text-gray-500" for="res-name">Name</label><br>
-                        <input required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-12 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="res-name" name="res-name" placeholder="Central Perk"><br>
+                        <input required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-12 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="res-name" name="res-name" placeholder="Name of your famous restaurant"><br>
                     </div>
                     <div class="my-2">
                         <label class="lg:text-xl text-gray-500" for="GST">GST</label><br>
-                        <input required class="border-2 border-gray-300 outline-none rounded-lg w-32 h-12 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="number" id="gst" name="gst" placeholder="18.00"><span class="text-xl text-gray-600 ml-3">%</span><br>
+                        <input required class="border-2 border-gray-300 outline-none rounded-lg w-32 h-12 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="number" min="0" id="gst" name="gst" placeholder="Eg. 18.00"><span class="text-xl text-gray-600 ml-3">%</span><br>
                     </div>
                     <div class="my-2">
                         <label class="lg:text-xl text-gray-500" for="addr">Address</label><br>
-                        <textarea required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-24 text-lg mt-2 p-3 focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="addr" name="addr" placeholder="Behind Some Building,near famous landmark"></textarea><br>
+                        <textarea required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-24 text-lg mt-2 p-3 focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="addr" name="addr" placeholder="Eg. Behind Some Building,near famous landmark"></textarea><br>
                     </div>
                     <div class="my-2">
                         <label class="lg:text-xl text-gray-500" for="pin">Pincode</label><br>
-                        <input required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-12 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="Pincode" name="Pincode" placeholder="414205"><br>
+                        <input required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-12 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="number" min="0" id="Pincode" name="Pincode" placeholder="Eg. 414205"><br>
                     </div>
                     <div class="my-2">
                         <label class="lg:text-xl text-gray-500" for="description">Description</label><br>
-                        <textarea required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-24 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="description" name="description" placeholder="Description"></textarea><br>
+                        <textarea required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-24 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="description" name="description" placeholder="Let us know about your restaurant in short"></textarea><br>
                     </div>
                     <div class="mb-10">
-                        <input class="lg:mt-2 p-4 w-72 rounded-lg bg-blue-500 text-gray-50 text-xl hover:bg-blue-600" type="submit" value="Submit">
+                        <input id="submitForm" class="lg:mt-2 p-4 w-72 rounded-lg bg-blue-500 text-gray-50 text-xl hover:bg-blue-600" type="submit" value="Submit">
                     </div>
                 </form>
             </div>
@@ -154,7 +155,8 @@
         </div>
     </div>
     </div>
-
+    
+    <script src="/public/js/add_restro.js"></script>
 </body>
 
 </html>
