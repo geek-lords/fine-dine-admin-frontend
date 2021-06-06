@@ -23,8 +23,8 @@ function setCookie(name,value,days) {
 }
 
 $(document).ready(function() {
-    //if(getCookie("jwt_token")!=null)
-    //window.location = "https://admin-fine-dine.herokuapp.com/admin/panel";
+    if(getCookie("jwt_token")!=null)
+    window.location = "RestroSelection.html";
 });
 
 function _log_in_admin(email, password){
@@ -44,7 +44,7 @@ function _log_in_admin(email, password){
                  alert(response.error)
              }else{
              setCookie("jwt_token", response.jwt_token, 30)
-             window.location = "https://admin-fine-dine.herokuapp.com/admin/panel";
+             window.location = "RestroSelection.html";
              }
          },
          statusCode: {

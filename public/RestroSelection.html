@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="icon" href="favicon.png" type="image/png" sizes="16x16">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
 <body style="font-family: Poppins Medium;" class="bg-gray-50">
@@ -68,29 +69,26 @@
             <div>
                 <p class="-mt-9 ml-32 text-xl w-32" style="font-family: Aquire;">FINE DINE</p>
             </div>
-            <div class="float-right mr-32 -mt-9">
-                <a href="profile.html" class="bg-blue-500 text-white text-base font-medium inline  hover:bg-blue-700"><img src="user.png" class="w-12 h-12 rounded-full border-2 border-gray-300"></a>
-            </div>
         </nav>
         <!--Left Section-->
-        <div class="col-span-6 h-full ml-32 mt-16">
+        <div class="col-span-6 h-full ml-32 mt-10">
             <!--Title-->
-            <p class="text-2xl leading-snug ml-11" style="font-family: Poppins semibold;">Welcome Back,<span id="user" class="text-blue-500">User</span></p>
+            <p class="text-2xl leading-snug text-left" style="font-family: Poppins semibold;">Welcome Back<span id="user" class="text-blue-500"></span></p>
             <!--Restro Selection Box-->
-            <div class="w-9/12 h-auto border-2 border-gray-200 shadow-md rounded-2xl mt-10">
+            <div id="add_rest" class="w-9/12 h-auto border-2 border-gray-200 shadow-md rounded-2xl mt-10">
                 <p class="text-center m-5 text-2xl text-gray-600" style="font-family: Poppins Medium;">Select Restraurant</p>
-                <!--Individual Card(Can Make Multiple Cards If Copied This Div)-->
-                <div class="w-auto h-auto border-2 border-gray-300 my-3 mx-6 rounded-xl flex" id="indi-card">
+                <!--Individual Card(Can Make Multiple Cards If Copied This Div)
+                <div id="rest_id" class="restaurant w-auto h-auto border-2 border-gray-300 my-3 mx-6 rounded-xl flex">
                     <div class="w-20 h-20 rounded-md m-3 bg-black flex-none"> <img class="w-20 h-20 object-fill rounded-md" src="restro.jpg"> </div>
                     <div class="m-2 w-auto h-auto">
                         <span class="text-2xl text-gray-700" style="font-family: Poppins Medium;">Shiv Sagar</span>
                         <p class="text-gray-400 text-sm">Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi 96522 (257)</p>
                     </div>
-                </div>
-                <!--End Individual Cards-->
-                <div class="w-9/12 ml-36 my-10">
-                    <a href="addRestro.html" class="text-blue-400">Add New Restraurant</a>
-                </div>
+                </div>-->
+            </div>
+            <!--End Individual Cards-->
+            <div class="w-9/12 text-center my-5">
+                <a href="addRestro.html" class="text-blue-400">Add New Restraurant</a>
             </div>
         </div>
         <!--Right Section-->
@@ -285,6 +283,7 @@
 
     </div>
 
+    <script src="/public/js/rest_selection.js"></script>
 </body>
 
 </html>
