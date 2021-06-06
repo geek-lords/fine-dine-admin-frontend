@@ -24,7 +24,7 @@ function setCookie(name,value,days) {
 
 $(document).ready(function() {
     if(getCookie("jwt_token")!=null)
-    window.location = "https://admin-fine-dine.herokuapp.com/admin/panel";
+    window.location = "RestroSelection.html";
 });
 
 function _create_admin(f_name, l_name, email, phone, password){
@@ -44,7 +44,7 @@ function _create_admin(f_name, l_name, email, phone, password){
      contentType: "application/json",
      success: function (response) {
         setCookie("jwt_token", response.jwt_token, 30)
-        window.location = "https://admin-fine-dine.herokuapp.com/admin/panel";
+        window.location = "RestroSelection.html";
      },
      statusCode: {
         401: function(xhr) {
