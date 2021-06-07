@@ -89,6 +89,8 @@ function createTable(){
             if(response.hasOwnProperty("error")){
                 alert(response.error)
             }else if(response.hasOwnProperty("table_id")){
+                $('#create_new_table').fadeOut();
+                $('#table-name').val('')
                 alert("Table created")
                 table_id = response.table_id
                 
@@ -103,7 +105,6 @@ function createTable(){
                 </div>
                 </div>
                 `)
-
             }else alert('Unknown Response'+response)
         },
         statusCode: {
@@ -119,7 +120,7 @@ function createTable(){
 }
 
 function getQRCode(table){
-
+    console.log("fetching qr code for id "+ table)
     jwt_token = getCookie("jwt_token")
     rest_id = getCookie("rest_id")
 
@@ -128,8 +129,8 @@ function getQRCode(table){
         url: BASE_URL+"/code?restaurant_id="+rest_id+"&table="+table,
         dataType: "json",
         contentType: "application/json",
-        headers: {"X-Auth-Token": jwt_token},
         success: function (response) {
+            console.log(reponse)
             if(response.hasOwnProperty("error")){
                 alert(response.error)
             }else {
@@ -177,6 +178,10 @@ $(document).on('click', '.remove_table', function(){
            alert(reponse)
        }
     });
+})
+
+$('#btn-create').click(function(){
+    $('#create_new_table').fadeIn();
 })
 
 function check_if_jwt_exists(){
