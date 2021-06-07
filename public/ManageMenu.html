@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="icon" href="favicon.png" type="image/png" sizes="16x16">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
 <body style="font-family: Poppins Medium;" class="bg-gray-50">
@@ -119,7 +120,7 @@
                 <div class="container px-5 py-20 mx-auto">
                     <!--Container for card 3X3 grid flex-->
                     <div class="flex flex-wrap -m-4">
-                        <!--Existing Card-->
+                        <!--Existing Card
                         <div class="xl:w-1/4 md:w-1/2 p-4">
                             <div class="bg-gray-100 p-6 rounded-lg shadow-md border-2 border-blue-50">
                                 <img class="h-40 rounded-xl w-full object-cover object-center mb-6" src="item.jpg" alt="content">
@@ -128,19 +129,19 @@
                                 <p class="leading-relaxed text-base">Price</p><span>40 RS</span>
                                 <button class="float-right px-4 py-2 bg-blue-600 -mt-5 rounded-md text-white">Remove</button>
                             </div>
-                        </div>
+                        </div>-->
                         <!--End-->
                         <!--Add New Menu Card-->
-                        <div class="xl:w-1/4 md:w-1/2 p-4">
+                        <div id="add_new_menu_item" class="xl:w-1/4 md:w-1/2 p-4">
                             <div class="bg-gray-50 p-6 rounded-lg shadow-xl border-2 border-green-100 ">
                                 <p class="text-xl leading-tight text-green-700 lg:text-center">Add New Menu Item</p><br>
-                                <form class="w-20 lg:w-auto">
+                                <form class="w-20 lg:w-auto" onsubmit="addItem(event)">
                                     <label class="text-base text-green-700">Item Name</label><br>
-                                    <input required class="mb-3 border-2 border-green-200 outline-none rounded-lg h-12 px-2 py-3 text-lg mt-2 lg:w-56 w-48 focus:ring-2 focus:ring-blue-600 focus:border-white " type="text " id="edit-name " name="" placeholder="Pav Bhajji "><br>
+                                    <input required class="mb-3 border-2 border-green-200 outline-none rounded-lg h-12 px-2 py-3 text-lg mt-2 lg:w-56 w-48 focus:ring-2 focus:ring-blue-600 focus:border-white " type="text " id="edit-name" name="" placeholder="Pav Bhajji "><br>
                                     <label class="text-base text-green-700">Description</label><br>
                                     <textarea required class="border-2 border-green-200 outline-none rounded-lg h-24 p-2 text-base mt-2 lg:w-56 focus:ring-2 focus:ring-blue-600 focus:border-white " type="text " id="edit-des" name="" placeholder="Spicy curry of mixed vegetables (bhaji) cooked in a special blend of spices and served with soft buttered pav (bread bun shallow fried in butter)"></textarea><br>
                                     <label class="text-base text-green-700">Price:</label>
-                                    <input required class="mb-3 mt-2 ml-3 border-2 border-green-200 outline-none rounded-lg h-12 px-2 py-3 text-lg w-20 focus:ring-2 focus:ring-blue-600 focus:border-white " type="text" id="edit-price" name=" " placeholder="40.00">
+                                    <input required class="mb-3 mt-2 ml-3 border-2 border-green-200 outline-none rounded-lg h-12 px-2 py-3 text-lg w-20 focus:ring-2 focus:ring-blue-600 focus:border-white " type="number" min="0" id="edit-price" name=" " placeholder="40.00">
                                     <span class="ml-1 text-xl text-green-700">Rs</span><br>
                                     <label class="text-base text-green-700">Upload Photo</label><br>
                                     <input required class="mt-1" type="file" id="upload-file" name="menu-img" accept="image/"><br><br>
@@ -156,7 +157,7 @@
 
         </div>
     </div>
-
+    <script src="/public/js/manage_menu.js"></script>
 </body>
 
 </html>
