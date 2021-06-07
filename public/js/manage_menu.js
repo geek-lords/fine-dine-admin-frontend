@@ -134,7 +134,7 @@ function addItem(e){
                     $('#edit-price').val('')
                     $('#upload-file').val(null)
 
-                    $(`<div id="card-${response.id}" class="xl:w-1/4 md:w-1/2 p-4">
+                    $(`<div id="card-${response.menu_id}" class="xl:w-1/4 md:w-1/2 p-4">
                         <div class="bg-gray-100 p-6 rounded-lg shadow-md border-2 border-blue-50">
                         <img class="h-40 rounded-xl w-full object-cover object-center mb-6" src="${photo_url}" alt="content">
                         <h2 class="text-lg text-gray-600 font-medium title-font mb-4">${edit_name}</h2>
