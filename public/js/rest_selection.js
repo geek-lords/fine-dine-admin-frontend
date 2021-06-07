@@ -69,7 +69,7 @@ function check_if_jwt_exists_and_go_to_admin_panel(){
     if(jwt_token==null){
         window.location = "signIn.html";
     }else if(rest_id!=null)
-        window.location = "RestroHome.html";
+        window.location = "ManageOrders.html";
 }
 
 // On restaurant selection
