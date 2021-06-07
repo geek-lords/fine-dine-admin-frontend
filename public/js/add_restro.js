@@ -22,6 +22,37 @@ function setCookie(name,value,days) {
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 
+function getURL(callback){
+    var logoImg = $('#upload-file').get(0).files[0];
+    var Image = new FormData();
+    Image.append('restaurant_photo', logoImg);
+    console.log(Image)
+    $.ajax({
+        type: "POST",
+        url: 'https://admin-fine-dine.herokuapp.com/api/v1/photo/add',
+        data: Image,
+        contentType: false,
+        processData: false,
+        cache: false,
+        success: function(response) {
+            if(response.hasOwnProperty("error")){
+                alert(response.error)
+            }else{
+                callback(response.url) 
+            }
+        },
+        statusCode: {
+           401: function(xhr) {
+               var obj = JSON.parse(xhr.responseText)
+               alert(obj.error)
+           }
+       },
+       failure: function(reponse){
+           alert(reponse)
+       }
+    });
+}
+
 function create_new_restaurant(name, description, photo_url, address, pincode, gst){
     obj = {
         name:name,
@@ -58,28 +89,18 @@ function create_new_restaurant(name, description, photo_url, address, pincode, g
     });
 }
 
-
-function check_if_jwt_exists_and_go_to_admin_panel(){
-    jwt_token = getCookie("jwt_token")
-    rest_id = getCookie("rest_id")
-
-    if(jwt_token!=null && rest_id!=null){
-        window.location = "RestroHome.html";
-    }else if(jwt_token==null)
-        window.location = "signIn.html";
-}
-
 function addRestro(e){
     e.preventDefault();
     
-    res_name = $('#res-name').val()
-    gst = $('#gst').val()
-    addr = $('#addr').val()
-    Pincode = $('#Pincode').val()
-    description = $('#description').val()
-    photo_url = "https://www.travelandleisureindia.in/wp-content/uploads/2019/12/Express-inn-feature-2.jpg"
-
-    create_new_restaurant(res_name, description, photo_url ,addr, Pincode, gst)
+    getURL(function(photo_url){
+        res_name = $('#res-name').val()
+        gst = $('#gst').val()
+        addr = $('#addr').val()
+        Pincode = $('#Pincode').val()
+        description = $('#description').val()
+    
+        create_new_restaurant(res_name, description, photo_url ,addr, Pincode, gst)
+    })
 }
 
 
@@ -90,7 +111,7 @@ function check_if_jwt_exists_and_go_to_admin_panel(){
     if(jwt_token==null){
         window.location = "signIn.html";
     }else if(rest_id!=null)
-        window.location = "RestroHome.html";
+        window.location = "ManageOrders.html";
 }
 
 $(document).ready(function() {
