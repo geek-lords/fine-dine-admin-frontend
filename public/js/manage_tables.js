@@ -44,7 +44,7 @@ function getAllTables(){
                 <div class="h-5/6 shadow-md bg-opacity-75 px-8 pt-16 pb-24 rounded-xl overflow-hidden text-center relative border-2 border-gray-200">
                     <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">${element.name}</h1>
                     <button class="border-2 bg-blue-500 hover:bg-blue-700 text-white px-3 py-2 my-8 rounded-lg outline-none remove_table" id="${element.id}">Remove</button><br>
-                    <a class="cursor-pointer text-indigo-500 inline-flex items-center mb-10 hover:text-blue-700 download_qrcode" onclick="getQRCode(${element.id})">Download QR
+                    <a href="${BASE_URL+"/code?restaurant_id="+rest_id+"&table="+element.id}" download="${element.name}.png" target="_" class="cursor-pointer text-indigo-500 inline-flex items-center mb-10 hover:text-blue-700 download_qrcode">Download QR
                         <img src="Download.svg">
                     </a>
                 </div>
@@ -99,7 +99,7 @@ function createTable(){
                 <div class="h-5/6 shadow-md bg-opacity-75 px-8 pt-16 pb-24 rounded-xl overflow-hidden text-center relative border-2 border-gray-200">
                     <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">${table_name}</h1>
                     <button class="border-2 bg-blue-500 hover:bg-blue-700 text-white px-3 py-2 my-8 rounded-lg outline-none remove_table" id="${table_id}">Remove</button><br>
-                    <a class="cursor-pointer text-indigo-500 inline-flex items-center mb-10 hover:text-blue-700 download_qrcode" onclick="getQRCode(${table_id})">Download QR
+                    <a href="${BASE_URL+"/code?restaurant_id="+rest_id+"&table="+table_id}" download target="_" class="cursor-pointer text-indigo-500 inline-flex items-center mb-10 hover:text-blue-700 download_qrcode">Download QR
                         <img src="Download.svg">
                     </a>
                 </div>
@@ -123,18 +123,18 @@ function getQRCode(table){
     console.log("fetching qr code for id "+ table)
     jwt_token = getCookie("jwt_token")
     rest_id = getCookie("rest_id")
-
+    console.log(BASE_URL+"/code?restaurant_id="+rest_id+"&table="+table)
     $.ajax({
         type: "GET",
         url: BASE_URL+"/code?restaurant_id="+rest_id+"&table="+table,
-        dataType: "json",
-        contentType: "application/json",
         success: function (response) {
-            console.log(reponse)
             if(response.hasOwnProperty("error")){
                 alert(response.error)
             }else {
                 console.log(response)
+                var blob = new Blob([response], {type: "image/png"});
+                window.navigator.msSaveBlob(blob, "QR Code.png");
+                
             }
         },
         statusCode: {
@@ -143,8 +143,8 @@ function getQRCode(table){
                alert(obj.error)
            }
        },
-       failure: function(reponse){
-           alert(reponse)
+       failure: function(response){
+           alert(response)
        }
     });
 }
