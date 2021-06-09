@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="icon" href="favicon.png" type="image/png" sizes="16x16">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
 <body style="font-family: Poppins Medium;" class="bg-gray-50">
@@ -122,10 +123,12 @@
                         <div class="w-full md:w-3/12 md:mx-2">
                             <!-- Profile Card -->
                             <div class="bg-white p-3 border-t-4 border-green-400 rounded-md shadow-sm">
+                                <!--
                                 <div class="image overflow-hidden">
                                     <img class="h-auto w-full mx-auto" src="user.png" alt="">
                                 </div>
-                                <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Sarvesh Joshi</h1>
+                                -->
+                                <h1 id="left_name" class="text-gray-900 font-bold text-xl leading-8 my-1"></h1>
                                 <h3 class="text-gray-600 font-lg text-semibold leading-6">Admin</h3>
                                 <ul class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                                     <li class="flex items-center py-3">
@@ -134,7 +137,7 @@
                                                 class="bg-green-500 py-1 px-2 rounded text-white text-sm">Active</span></span>
                                     </li>
                                     <li class="flex items-center py-2 rounded-md">
-                                        <span class="text-indigo-500">Shiv Sagar</span>
+                                        <span id="left_rest_name" class="text-indigo-500"></span>
                                     </li>
                                 </ul>
                             </div>
@@ -161,21 +164,27 @@
                                     <div class="grid md:grid-cols-2 text-sm">
                                         <div class="grid grid-cols-2">
                                             <div class="px-4 py-2 font-semibold">First Name</div>
-                                            <div class="px-4 py-2">Sarvesh</div>
+                                            <input class="px-4 py-2" id="right_f_name"></input>
                                         </div>
                                         <div class="grid grid-cols-2">
                                             <div class="px-4 py-2 font-semibold">Last Name</div>
-                                            <div class="px-4 py-2">Joshi</div>
+                                            <input class="px-4 py-2" id="right_l_name"></input>
                                         </div>
                                         <div class="grid grid-cols-2">
                                             <div class="px-4 py-2 font-semibold">Contact No.</div>
-                                            <div class="px-4 py-2">99998001001</div>
+                                            <input class="px-4 py-2" id="right_contact"></input>
                                         </div>
                                         <div class="grid grid-cols-3">
                                             <div class="px-4 py-2 font-semibold">Email.</div>
                                             <div class="px-4 py-2">
-                                                <a class="text-blue-800" href="mailto:jane@example.com">wow@fakeemail.com</a>
+                                                <input class="text-blue-800" id="right_email"></input>
                                             </div>
+                                        </div>
+                                        <div>
+                                            <div class="px-4 py-2 font-semibold"></div>
+                                            <button id="update_details_btn" class="hidden ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                Update Details
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -189,21 +198,14 @@
 
                                 <div class="grid grid-cols-2">
                                     <div class="col-span-2 lg:col-span-1">
-                                        <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                                        <div class="flex items-stretch space-x-2 font-semibold text-gray-900 leading-8 mb-3">
                                             <span clas="text-green-500">
                                                 <img src="restroic.svg" class="w-8 h-8">
                                             </span>
-                                            <span class="tracking-wide">Restrauants</span>
+                                            <span class="tracking-wide">Restaurants</span>
                                         </div>
-                                        <ul class="list-inside space-y-2">
-                                            <li class="p-3 bg-gray-200 rounded-xl space-y-1">
-                                                <a href="#" class="text-teal-600">Adarsh Restrauants</a>
-                                                <div class="text-gray-500 text-xs">Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi 96522</div>
-                                            </li>
-                                            <li class="p-3 bg-gray-200 rounded-xl space-y-1">
-                                                <a href="#" class="text-teal-600">Aapna Dhaba</a>
-                                                <div class="text-gray-500 text-xs">Panjab famous tea stall ke pass wali gali mai</div>
-                                            </li>
+                                        <ul id="rest_div" class="list-inside space-y-2">
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -214,7 +216,7 @@
 
             </div>
             </div>
-
+    <script src="/public/js/profile.js"></script>
 </body>
 
 </html>
