@@ -15,7 +15,19 @@
 </head>
 
 <body style="font-family: Poppins Medium;" class="bg-gray-50">
-    <script src="" async defer></script>
+
+    <!--Loading-->
+    <div class="fixed z-10 inset-0 overflow-y-auto hidden" id="loading_icon">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75">
+                    <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-24 w-24 absolute top-1/2 left-1/2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End-->
+
     <div class="grid grid-cols-12 h-full">
         <nav class="w-full col-span-full shadow-sm border-b-2 border-gray-200" style="height:3.5rem;">
             <div class="max-w-8xl mx-auto lg:mx-4 px-2 sm:px-6 lg:px-8">
@@ -138,7 +150,7 @@
                         <textarea required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-24 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="description" name="description" placeholder="Let us know about your restaurant in short"></textarea><br>
                     </div>
                     <div class="my-2">
-                        <label class="text-base text-green-700">Upload Photo of your Restaurant</label><br>
+                        <label class="text-base text-gray-700">Upload Photo of your Restaurant</label><br>
                         <input required class="mt-1" type="file" id="upload-file" name="rest-img" accept="image/"><br><br>
                     </div>
                     <div class="mb-10">
@@ -159,7 +171,7 @@
     </div>
     </div>
 
-    <script src="/public/js/add_restro.js"></script>
+    <!--<script src="/public/js/add_restro.js"></script>-->
 </body>
 
 </html>
