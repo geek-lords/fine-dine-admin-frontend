@@ -22,7 +22,7 @@ function setCookie(name,value,days) {
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 
-function getAllTables(){
+function getAllTables(callback){
 
     jwt_token = getCookie("jwt_token")
     rest_id = getCookie("rest_id")
@@ -62,11 +62,16 @@ function getAllTables(){
        },
        failure: function(reponse){
            alert(reponse)
+       },
+       complete: function(){
+           callback()
        }
     });
 }
 
 function createTable(){
+    $('#loading_icon').fadeIn(200)
+
     check_if_jwt_exists()
     table_name = $('#table-name').val()
 
@@ -89,7 +94,7 @@ function createTable(){
             if(response.hasOwnProperty("error")){
                 alert(response.error)
             }else if(response.hasOwnProperty("table_id")){
-                $('#create_new_table').fadeOut();
+                
                 $('#table-name').val('')
                 alert("Table created")
                 table_id = response.table_id
@@ -115,6 +120,9 @@ function createTable(){
        },
        failure: function(reponse){
            alert(reponse)
+       },
+       complete: function(){
+        $('#loading_icon').fadeOut(200)
        }
     });
 }
@@ -150,6 +158,8 @@ function getQRCode(table){
 }
 
 $(document).on('click', '.remove_table', function(){
+    $('#loading_icon').fadeIn(200)
+
     table_id = this.id
     console.log(table_id)
 
@@ -176,6 +186,9 @@ $(document).on('click', '.remove_table', function(){
        },
        failure: function(reponse){
            alert(reponse)
+       },
+       complete: function(){
+        $('#loading_icon').fadeOut(200)
        }
     });
 })
@@ -196,5 +209,9 @@ function check_if_jwt_exists(){
 
 $(document).ready(function() {
     check_if_jwt_exists()
-    getAllTables()
+
+    $('#loading_icon').fadeIn(200)
+    getAllTables(function(){
+        $('#loading_icon').fadeOut(200)
+    })
 });

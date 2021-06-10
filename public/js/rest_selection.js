@@ -22,7 +22,7 @@ function setCookie(name,value,days) {
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 
-function get_admin_restaurants(jwt_token){
+function get_admin_restaurants(jwt_token, callback){
     $.ajax({
         type: "GET",
         url: BASE_URL+"/get_restaurant",
@@ -58,6 +58,9 @@ function get_admin_restaurants(jwt_token){
        },
        failure: function(reponse){
            console.log(reponse)
+       },
+       complete: function(){
+           callback()
        }
     });
 }
@@ -88,5 +91,9 @@ $(document).ready(function() {
     check_if_jwt_exists_and_go_to_admin_panel()
     jwt_token = getCookie("jwt_token")
     console.log("No rest id. jwt_token:\n"+jwt_token)
-    get_admin_restaurants(jwt_token)
+
+    $('#loading_icon').fadeIn(200)
+    get_admin_restaurants(jwt_token, function(){
+        $('#loading_icon').fadeOut(200)
+    })
 });

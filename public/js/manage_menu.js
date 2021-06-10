@@ -54,7 +54,7 @@ function getURL(callback){
     });
 }
 
-function getAllMenuItems(){
+function getAllMenuItems(callback){
     jwt_token = getCookie("jwt_token")
     rest_id = getCookie("rest_id")
 
@@ -92,11 +92,16 @@ function getAllMenuItems(){
        },
        failure: function(reponse){
            alert(reponse)
+       },
+       complete: function(){
+           callback()
        }
     });
 }
 
 function addItem(e){
+    $('#loading_icon').fadeIn(200)
+
     e.preventDefault();
     
     check_if_jwt_exists();
@@ -153,12 +158,16 @@ function addItem(e){
            },
            failure: function(reponse){
                alert(reponse)
+           },complete: function(){
+            $('#loading_icon').fadeOut(200)
            }
         });
     })
 }
 
 $(document).on('click', '.remove_item', function(){ 
+    $('#loading_icon').fadeIn(200)
+
     id = this.id
 
     obj = {
@@ -187,8 +196,11 @@ $(document).on('click', '.remove_item', function(){
                alert(obj.error)
            }
        },
-       failure: function(reponse){
-           alert(reponse)
+       failure: function(response){
+           alert(response)
+       },
+       complete: function(){
+        $('#loading_icon').fadeOut(200)
        }
     });
 });
@@ -205,5 +217,9 @@ function check_if_jwt_exists(){
 
 $(document).ready(function() {
     check_if_jwt_exists()
-    getAllMenuItems()
+
+    $('#loading_icon').fadeIn(200)
+    getAllMenuItems(function(){
+        $('#loading_icon').fadeOut(200)
+    })
 });

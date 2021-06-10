@@ -53,7 +53,7 @@ function getURL(callback){
     });
 }
 
-function create_new_restaurant(name, description, photo_url, address, pincode, gst){
+function create_new_restaurant(name, description, photo_url, address, pincode, gst, callback){
     obj = {
         name:name,
         description:description,
@@ -83,8 +83,11 @@ function create_new_restaurant(name, description, photo_url, address, pincode, g
                alert(obj.error)
            }
        },
-       failure: function(reponse){
-           alert(reponse)
+       failure: function(response){
+           alert(response)
+       },
+       complete: function(){
+            callback()
        }
     });
 }
@@ -92,6 +95,7 @@ function create_new_restaurant(name, description, photo_url, address, pincode, g
 function addRestro(e){
     e.preventDefault();
     
+    $('#loading_icon').fadeIn(200)
     getURL(function(photo_url){
         res_name = $('#res-name').val()
         gst = $('#gst').val()
@@ -99,7 +103,9 @@ function addRestro(e){
         Pincode = $('#Pincode').val()
         description = $('#description').val()
     
-        create_new_restaurant(res_name, description, photo_url ,addr, Pincode, gst)
+        create_new_restaurant(res_name, description, photo_url ,addr, Pincode, gst, function(){
+            $('#loading_icon').fadeOut(200)
+        })
     })
 }
 

@@ -24,6 +24,8 @@ function setCookie(name,value,days) {
 }
 
 $('#update_details_btn').on('click', function(){
+    $('#loading_icon').fadeIn(200)
+
     f_name = $('#right_f_name').val()
     l_name = $('#right_l_name').val()
     contact = $('#right_contact').val()
@@ -65,8 +67,11 @@ $('#update_details_btn').on('click', function(){
                alert(obj.error)
            }
        },
-       failure: function(reponse){
-           alert(reponse)
+       failure: function(response){
+           alert(response)
+       },
+       complete: function(){
+            $('#loading_icon').fadeOut(200)
        }
     });
     
@@ -118,7 +123,7 @@ function getProfileDetails(){
     });
 }
 
-function getRestDetails(){
+function getRestDetails(callback){
 
     jwt_token = getCookie("jwt_token")
     rest_id = getCookie("rest_id")
@@ -159,6 +164,9 @@ function getRestDetails(){
        },
        failure: function(reponse){
            console.log(reponse)
+       },
+       complete: function(response){
+           callback()
        }
     });
 }
@@ -175,6 +183,10 @@ function check_if_jwt_exists(){
 
 $(document).ready(function() {
     check_if_jwt_exists()
+
+    $('#loading_icon').fadeIn(200)
     getProfileDetails()
-    getRestDetails()
+    getRestDetails(function(){
+        $('#loading_icon').fadeOut(200)
+    })
 });

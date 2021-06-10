@@ -24,6 +24,7 @@ function setCookie(name,value,days) {
 }
 
 function newItemChecked(e){
+   $('#loading_icon').fadeIn(200)
    var menu_id = e.id
 
    jwt_token = getCookie("jwt_token")
@@ -58,6 +59,9 @@ function newItemChecked(e){
    },
    failure: function(reponse){
        alert(reponse)
+   },
+   complete: function(){
+    $('#loading_icon').fadeOut(200)
    }
 });
 
@@ -163,6 +167,7 @@ function get_new_orders(){
 }
 
 function get_served_orders(){
+    $('#loading_icon').fadeIn(200)
 
     jwt_token = getCookie("jwt_token")
     rest_id = getCookie("rest_id")
@@ -225,6 +230,9 @@ function get_served_orders(){
        },
        failure: function(reponse){
            alert(reponse)
+       },
+       complete: function(){
+        $('#loading_icon').fadeOut(200)
        }
     });
 }
@@ -242,8 +250,10 @@ function check_if_jwt_exists(){
 
 $(document).ready(function() {
     check_if_jwt_exists()
+
+    $('#loading_icon').fadeIn(200)
     get_new_orders()
-    
+    $('#loading_icon').fadeOut(200)
     setInterval(function(){ 
         get_new_orders()
     }, 5000);

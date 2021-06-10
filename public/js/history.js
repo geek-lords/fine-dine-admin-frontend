@@ -24,6 +24,8 @@ function setCookie(name,value,days) {
 }
 
 function expand(e){
+    $('#loading_icon').fadeIn(200)
+
     order_id = e.id
 
     jwt_token = getCookie("jwt_token")
@@ -79,11 +81,14 @@ function expand(e){
        },
        failure: function(reponse){
            alert(reponse)
+       },
+       complete: function(){
+            $('#loading_icon').fadeOut(200)
        }
     });
 }
 
-function getOrderHistory(){
+function getOrderHistory(callback){
 
     jwt_token = getCookie("jwt_token")
     rest_id = getCookie("rest_id")
@@ -140,6 +145,9 @@ function getOrderHistory(){
        },
        failure: function(reponse){
            alert(reponse)
+       },
+       complete: function(){
+           callback()
        }
     });
 }
@@ -156,5 +164,9 @@ function check_if_jwt_exists(){
 
 $(document).ready(function() {
     check_if_jwt_exists()
-    getOrderHistory()
+
+    $('#loading_icon').fadeIn(200)
+    getOrderHistory(function(){
+        $('#loading_icon').fadeOut(200)
+    })
 });

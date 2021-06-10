@@ -24,10 +24,11 @@ function setCookie(name,value,days) {
 
 $(document).ready(function() {
     if(getCookie("jwt_token")!=null)
-    window.location = "RestroSelection.html";
+        window.location = "RestroSelection.html";
+    $('#loading_icon').fadeOut(200)
 });
 
-function _log_in_admin(email, password){
+function _log_in_admin(email, password, callback){
     obj = {
         email:email,
         password:password
@@ -42,9 +43,12 @@ function _log_in_admin(email, password){
          success: function (response) {
              if(response.hasOwnProperty("error")){
                  alert(response.error)
+             }else if(response.hasOwnProperty("jwt")){
+             setCookie("jwt_token", response.jwt, 30)
+                window.location = "RestroSelection.html"
              }else{
-             setCookie("jwt_token", response.jwt_token, 30)
-             window.location = "RestroSelection.html";
+                 alert('Unknown response')
+                 console.log(response)
              }
          },
          statusCode: {
@@ -53,8 +57,11 @@ function _log_in_admin(email, password){
                 alert(obj.error)
             }
         },
-        failure: function(reponse){
-            console.log(reponse)
+        failure: function(response){
+            alert(response)
+        },
+        complete: function(){
+            callback()
         }
      }); 
 }
@@ -65,5 +72,8 @@ function loginAdmin(e){
     email = document.getElementById("email").value;
     pass = document.getElementById("pass").value;
 
-    _log_in_admin(email, pass)
+    $('#loading_icon').fadeIn(200)
+    _log_in_admin(email, pass, function(){
+        $('#loading_icon').fadeOut(200)
+    })
 }

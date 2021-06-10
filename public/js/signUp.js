@@ -24,10 +24,11 @@ function setCookie(name,value,days) {
 
 $(document).ready(function() {
     if(getCookie("jwt_token")!=null)
-    window.location = "RestroSelection.html";
+        window.location = "RestroSelection.html";
+    $('#loading_icon').fadeOut(200)
 });
 
-function _create_admin(f_name, l_name, email, phone, password){
+function _create_admin(f_name, l_name, email, phone, password,callback){
  obj = {
     f_name:f_name,
     l_name:l_name,
@@ -43,8 +44,15 @@ function _create_admin(f_name, l_name, email, phone, password){
      processData: false,
      contentType: "application/json",
      success: function (response) {
-        setCookie("jwt_token", response.jwt_token, 30)
-        window.location = "RestroSelection.html";
+        if(response.hasOwnProperty("error")){
+            alert(response.error)
+        }else if(response.hasOwnProperty("jwt_token")){
+            setCookie("jwt_token", response.jwt_token, 30)
+            window.location = "RestroSelection.html";
+        }else{
+            alert('Unknown response')
+            console.log(response)
+        }
      },
      statusCode: {
         401: function(xhr) {
@@ -52,8 +60,11 @@ function _create_admin(f_name, l_name, email, phone, password){
             alert(obj.error)
         }
     },
-    failure: function(reponse){
-        console.log(reponse)
+    failure: function(response){
+        alert(response)
+    },
+    complete: function () {  
+        callback()
     }
  });  
 }
@@ -67,11 +78,8 @@ function createAdmin(e){
     phone = document.getElementById("phone").value;
     pass = document.getElementById("pass").value;
 
-    console.log(fname)
-    console.log(lname)
-    console.log(email)
-    console.log(pass)
-    console.log(phone)
-
-    _create_admin(fname, lname, email, phone, pass)
+    $('#loading_icon').fadeIn(200)
+    _create_admin(fname, lname, email, phone, pass,function(){
+        $('#loading_icon').fadeOut(200)
+    })
 }
