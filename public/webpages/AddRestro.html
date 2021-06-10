@@ -61,7 +61,7 @@
                     <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                         <div class="flex-shrink-0 flex items-center">
                             <img class="block lg:hidden h-8 w-auto ml-12" src="logo.svg" alt="Workflow">
-                            <img class="hidden lg:block h-8 w-auto" src="logo.svg" alt="Workflow"><span class="ml-2 hidden lg:block text-gray-700">Fine Dine</span>
+                            <img class="hidden lg:block h-8 w-auto" src="../assets/logo.svg" alt="Fine Dine"><span class="ml-2 hidden lg:block text-gray-700 text-xl" style="font-family: Aquire;">Fine Dine</span>
                         </div>
                         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-end sm:mr-10">
                             <div class="hidden sm:block">
@@ -126,7 +126,7 @@
         <!--Left Section-->
         <div class="col-span-6 ml-10 lg:ml-32">
             <div class="block mt-5">
-                <p class="text-xl">Add New Restaurant</p>
+                <p class="text-xl text-blue-600">Add New Restaurant</p>
 
                 <form onsubmit="addRestro(event)" class="lg:mt-2" style="font-family: Poppins Medium;">
                     <div class="my-2">
@@ -150,7 +150,7 @@
                         <textarea required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-24 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="text" id="description" name="description" placeholder="Let us know about your restaurant in short"></textarea><br>
                     </div>
                     <div class="my-2">
-                        <label class="text-base text-gray-700">Upload Photo of your Restaurant</label><br>
+                        <label class="text-lg text-gray-700">Upload Photo of your Restaurant</label><br>
                         <input required class="mt-1" type="file" id="upload-file" name="rest-img" accept="image/"><br><br>
                     </div>
                     <div class="mb-10">
@@ -165,13 +165,13 @@
             <!--Theme Picture-->
             <div class="lg:col-span-1"></div>
             <div class="lg:col-span-4">
-                <img src="restro.svg" />
+                <img src="../assets/restro.svg" />
             </div>
         </div>
     </div>
     </div>
 
-    <!--<script src="/public/js/add_restro.js"></script>-->
+    <script src="/public/js/add_restro.js"></script>
 </body>
 
 </html>
