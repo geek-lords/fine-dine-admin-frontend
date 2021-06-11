@@ -46,9 +46,6 @@ function newItemChecked(e){
         }else if(response.hasOwnProperty("success")){
             parent = $("#item_"+menu_id).parent()
             $("#item_"+menu_id).remove();
-            if(parent.children().length <= 0)
-                console.log('less than')
-                else console.log('more than')
         }else alert('Unknown response')
     },
     statusCode: {

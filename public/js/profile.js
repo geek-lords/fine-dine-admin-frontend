@@ -57,7 +57,7 @@ $('#update_details_btn').on('click', function(){
             if(response.hasOwnProperty("error")){
                 alert(response.error)
             }else if(response.hasOwnProperty("success")){
-                alert("Details have been updated.")
+               
             }else 
                 alert('Unknown Response'+response)
         },

@@ -96,7 +96,7 @@ function createTable() {
             } else if (response.hasOwnProperty("table_id")) {
 
                 $('#table-name').val('')
-                alert("Table created")
+                
                 table_id = response.table_id
 
                 $('#create_new_table').after(`
@@ -174,7 +174,7 @@ $(document).on('click', '.remove_table', function() {
                 alert(response.error)
             } else if (response.hasOwnProperty("success")) {
                 console.log(response)
-                alert("Table has been removed")
+                
                 $("#card-" + table_id).fadeOut();
             } else alert('Unknown response')
         },

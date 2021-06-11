@@ -133,7 +133,6 @@ function addItem(e){
                 if(response.hasOwnProperty("error")){
                     alert(response.error)
                 }else{
-                    alert(response.success)  
                     $('#edit-name').val('')    
                     $('#edit-des').val('')
                     $('#edit-price').val('')
@@ -186,7 +185,6 @@ $(document).on('click', '.remove_item', function(){
                 alert(response.error)
             }else if(response.hasOwnProperty("success")){
                 console.log(response)  
-                alert(response.success)
                 $("#card-"+id).fadeOut();
             }else alert('unknown response')
         },
