@@ -37,6 +37,7 @@ function expand(e) {
 
     if (!$('#div_' + order_id).is(':empty')) {
         $("#div_" + order_id).slideUp(function() {
+            $('#loading_icon').fadeOut(200)
             $("#div_" + order_id).empty()
         })
         EXPANDED = false
