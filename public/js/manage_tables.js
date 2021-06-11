@@ -45,7 +45,7 @@ function getAllTables(callback) {
                     <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">${element.name}</h1>
                     <button class="border-2 bg-blue-500 hover:bg-blue-700 text-white px-3 py-2 my-8 rounded-lg outline-none remove_table" id="${element.id}">Remove</button><br>
                     <a href="${BASE_URL+"/code?restaurant_id="+rest_id+"&table="+element.id}" download="${element.name}.png" target="_" class="cursor-pointer text-indigo-500 inline-flex items-center mb-10 hover:text-blue-700 download_qrcode">Download QR
-                        <img src="Download.svg">
+                        <img src="../assets/Download.svg">
                     </a>
                 </div>
                 </div>
