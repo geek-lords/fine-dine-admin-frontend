@@ -16,7 +16,7 @@
 <body>
 
     <!--Loading-->
-    <div class="fixed z-10 inset-0 overflow-y-auto" id="loading_icon">
+    <div class="fixed z-10 inset-0 overflow-y-auto hidden" id="loading_icon">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div class="fixed inset-0 transition-opacity" aria-hidden="true">
                 <div class="absolute inset-0 bg-gray-500 opacity-75 grid grid-cols-3 md:grid-cols-11">
@@ -58,11 +58,11 @@
         <div class="col-span-5 mt-12">
             <div class="p-10">
                 <div>
-                    <p class="text-gray-400" style="font-family: Poppins Regular;">Welcome back</p>
-                    <span class="text-4xl text-gray-700" style="font-family: Poppins Semibold;">Sign in</span><br>
-                    <p class="text-base text-gray-400 mt-1.5" style="font-family: Poppins Medium;">Don't have an account?<a class="text-blue-500 hover:text-blue-600" href="signUp.html"> Register</a> </p>
+                    <p class="text-gray-400" style="font-family: Poppins;">Welcome back</p>
+                    <span class="text-4xl text-gray-700 font-semibold" style="font-family: Poppins;">Sign in</span><br>
+                    <p class="text-base text-gray-400 mt-1.5 font-medium" style="font-family: Poppins;">Don't have an account?<a class="text-blue-500 hover:text-blue-600" href="signUp.html"> Register</a> </p>
                 </div>
-                <form method="post" onsubmit="return loginAdmin(event)" class="mt-5" style="font-family: Poppins Medium;">
+                <form method="post" onsubmit="return loginAdmin(event)" class="mt-5 font-medium" style="font-family: Poppins;">
                     <div class="mt-4">
                         <label class="text-xl text-gray-500" for="email">Email</label><br>
                         <input required class="border-2 border-gray-300 outline-none rounded-lg w-72 h-12 p-3 text-lg mt-2 focus:ring-2 focus:ring-blue-600 focus:border-white" type="email" id="email" name="email" placeholder="wow@youremail.com"><br>
