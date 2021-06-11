@@ -19,14 +19,16 @@
     <div class="fixed z-10 inset-0 overflow-y-auto" id="loading_icon">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div class="fixed inset-0 transition-opacity" aria-hidden="true">
-                <div class="absolute inset-0 bg-gray-500 opacity-75">
-                    <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-24 w-24 absolute top-1/2 left-1/2"></div>
+                <div class="absolute inset-0 bg-gray-500 opacity-75 grid grid-cols-3 md:grid-cols-11">
+                    <div class="col-span-1 md:col-span-5"></div>
+                    <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-24 w-24 mt-72 md:mt-80"></div>
+                    <div class="col-span-1 md:col-span-5"></div>
                 </div>
             </div>
         </div>
     </div>
     <!--End-->
-    
+
     <script src="" async defer></script>
     <div class="grid lg:grid-cols-12 h-full">
 
