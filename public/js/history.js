@@ -122,13 +122,13 @@ function getOrderHistory(callback) {
                         </div>
                         <div class=" lg:pr-0">
                             <img src="../assets/time.svg" class="inline">
-                            <span class="ml-2 text-purple-600">1${element.time_and_date}</span>
+                            <span class="ml-2 text-purple-600">${element.time_and_date}</span>
                         </div>
                         <div class="slide_div py-5 hidden" id="div_${element.id}"></div>
                         <div class="lg:pr-0">
                             <img src="../assets/money.svg" class="inline">
                             <span class="ml-2 text-purple-600 text-lg">Rs.${parseInt(element.price_excluding_tax) + parseInt(element.tax)}</span>
-                            <img src="up.svg" id="${element.id}" onclick="expand(this)" class="float-right transform">
+                            <img src="../assets/up.svg" id="${element.id}" onclick="expand(this)" class="float-right transform">
                         </div>
                     </div>
                 </div>
