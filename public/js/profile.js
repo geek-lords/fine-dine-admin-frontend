@@ -171,6 +171,15 @@ function getRestDetails(callback){
     });
 }
 
+function logOut(){
+    $('#loading_icon').fadeIn(200)
+    document.cookie = "jwt_token" + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"
+    document.cookie = "rest_id" + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"
+    $('#loading_icon').fadeOut(200)
+    window.location.href = "signIn.html"
+}
+
+
 function check_if_jwt_exists(){
     jwt_token = getCookie("jwt_token")
     rest_id = getCookie("rest_id")
