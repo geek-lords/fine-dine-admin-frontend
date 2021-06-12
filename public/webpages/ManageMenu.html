@@ -14,7 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
-<body style="font-family: Poppins Medium;" class="bg-gray-50">
+<body style="font-family: Poppins;" class="bg-gray-50 font-medium">
 
     <!--Loading-->
     <div class="fixed z-10 inset-0 overflow-y-auto hidden" id="loading_icon">
@@ -130,24 +130,13 @@
 
     <div class="grid grid-cols-12 h-auto">
         <div class="col-span-1"></div>
-        <div class="col-span-10">
+        <div class="col-span-11 md:col-span-10">
             <section class="text-gray-600 body-font">
-                <button class="float-right mt-5 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500 rounded-md">Add</button>
+                <!--<button class="float-right mt-5 px-4 py-2 text-white hover:bg-blue-700 bg-blue-500 rounded-md">Add</button>-->
                 <!--Container For Cards-->
                 <div class="container px-5 py-20 mx-auto">
                     <!--Container for card 3X3 grid flex-->
                     <div class="flex flex-wrap -m-4">
-                        <!--Existing Card
-                        <div class="xl:w-1/4 md:w-1/2 p-4">
-                            <div class="bg-gray-100 p-6 rounded-lg shadow-md border-2 border-blue-50">
-                                <img class="h-40 rounded-xl w-full object-cover object-center mb-6" src="item.jpg" alt="content">
-                                <h2 class="text-lg text-gray-600 font-medium title-font mb-4">Pav Bhajji</h2>
-                                <p class="leading-relaxed text-base md:line-clamp-3">A spicy curry of mixed vegetables (bhaji) cooked in a special blend of spices and served with soft buttered pav (bread bun shallow fried in butter)</p><br>
-                                <p class="leading-relaxed text-base">Price</p><span>40 RS</span>
-                                <button class="float-right px-4 py-2 bg-blue-600 -mt-5 rounded-md text-white">Remove</button>
-                            </div>
-                        </div>-->
-                        <!--End-->
                         <!--Add New Menu Card-->
                         <div id="add_new_menu_item" class="xl:w-1/4 md:w-1/2 p-4">
                             <div class="bg-gray-50 p-6 rounded-lg shadow-xl border-2 border-green-100 ">
@@ -167,10 +156,21 @@
                             </div>
                         </div>
                         <!--End-->
+                        <!--Existing Card
+                        <div class="xl:w-1/4 md:w-1/2 p-4">
+                            <div class="bg-gray-100 p-6 rounded-lg shadow-md border-2 border-blue-50">
+                                <img class="h-40 rounded-xl w-full object-cover object-center mb-6" src="item.jpg" alt="content">
+                                <h2 class="text-lg text-gray-600 font-medium title-font mb-4">Pav Bhajji</h2>
+                                <p class="leading-relaxed text-base md:line-clamp-3">A spicy curry of mixed vegetables (bhaji) cooked in a special blend of spices and served with soft buttered pav (bread bun shallow fried in butter)</p><br>
+                                <p class="leading-relaxed text-base">Price</p><span>40 RS</span>
+                                <button class="float-right px-4 py-2 bg-blue-600 -mt-5 rounded-md text-white">Remove</button>
+                            </div>
+                        </div>
+                        End-->
                     </div>
             </section>
             </div>
-            <div class="col-span-1 "></div>
+            <div class="col-span-none md:col-span-1 "></div>
 
         </div>
     </div>
