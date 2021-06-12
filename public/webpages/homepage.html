@@ -11,7 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="icon" href="favicon.png" type="image/png" sizes="16x16">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
-</head>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  </head>
 
 <body style="font-family: Poppins;" class="bg-gray-50 font-medium">
     <script src="" async defer></script>
@@ -51,7 +52,7 @@
                 <img src="../assets/restro.svg">
             </div>
             <div id="down_arrow" class="hidden md:block -mt-16 mb-10 animate-bounce">
-                <img src="../assets/down arrow.svg">
+                <img src="../assets/down arrow.svg" onclick="goToBottom()">
             </div>
         </div>
 
@@ -68,7 +69,7 @@
                         <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="../assets/team/abhi.png">
                         <div class="flex-grow sm:pl-8">
                             <h2 class="title-font font-medium text-lg text-gray-900">Abhiraj Kale</h2>
-                            <h3 class="text-gray-500 mb-3">UI Developer</h3>
+                            <h3 class="text-gray-500 mb-3">Front-End Developer</h3>
                             <span class="inline-flex">
                     <a class="text-gray-500">
                       <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -170,7 +171,7 @@
             </div>
         </div>
     </section>
-
+    <script src="/public/js/homepage.js"></script>
 </body>
 
 </html>
