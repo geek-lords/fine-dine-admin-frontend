@@ -129,7 +129,7 @@ function getOrderHistory(callback) {
                         <div class="lg:pr-0">
                             <img src="../assets/money.svg" class="inline">
                             <span class="ml-2 text-purple-600 text-lg">Rs.${parseInt(element.price_excluding_tax) + parseInt(element.tax)}</span>
-                            <img src="../assets/up.svg" id="${element.id}" onclick="expand(this)" class="float-right transform">
+                            <img src="../assets/up.svg" id="${element.id}" onclick="expand(this)" class="float-right transform rotate-45">
                         </div>
                     </div>
                 </div>
