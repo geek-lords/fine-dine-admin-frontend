@@ -1,3 +1,3 @@
-# fine-dine-admin-frontend
+#Fine Dine
 
 https://admin-fine-dine.herokuapp.com/
