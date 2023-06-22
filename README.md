@@ -1,3 +1,3 @@
 # Fine Dine
 
-https://admin-fine-dine.herokuapp.com/
+https://abhiraj-kale.github.io/fine-dine-admin-frontend/public/webpages/homepage.html
